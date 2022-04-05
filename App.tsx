@@ -1,33 +1,112 @@
-import * as React from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import HomeScreen from './src/screens/HomeScreen';
+import {Icon} from 'react-native-elements';
+import colors from './src/constants/colors';
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: icon => (
+              <Icon
+                type="feather"
+                name="home"
+                size={icon.size}
+                color={
+                  icon.focused ? colors.primaryColor : colors.secondaryColor
+                }
+                tvParallaxProperties
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={HomeScreen}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: icon => (
+              <Icon
+                name="search"
+                size={icon.size}
+                color={
+                  icon.focused ? colors.primaryColor : colors.secondaryColor
+                }
+                tvParallaxProperties
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Tester"
+          component={HomeScreen}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: icon => (
+              <Icon
+                name="face"
+                size={icon.size}
+                color={
+                  icon.focused ? colors.primaryColor : colors.secondaryColor
+                }
+                tvParallaxProperties
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="My Looks"
+          component={HomeScreen}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: icon => (
+              <Icon
+                name="bookmark"
+                type="feather"
+                size={icon.size}
+                color={
+                  icon.focused ? colors.primaryColor : colors.secondaryColor
+                }
+                tvParallaxProperties
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Tutorials"
+          component={HomeScreen}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: icon => (
+              <Icon
+                name="video"
+                type="octicon"
+                size={icon.size}
+                color={
+                  icon.focused ? colors.primaryColor : colors.secondaryColor
+                }
+                tvParallaxProperties
+              />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;
