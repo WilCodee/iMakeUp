@@ -80,15 +80,7 @@ const Layout = ({title, children, search}: Props) => {
           )}
         </View>
       </View>
-      {/* <ScrollView
-        style={{
-          backgroundColor: colors.mainColor,
-          paddingTop: 10,
-          paddingHorizontal: 15,
-        }}
-      > */}
       {children}
-      {/* </ScrollView> */}
     </View>
   );
 };

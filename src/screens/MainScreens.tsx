@@ -5,6 +5,7 @@ import {Icon} from 'react-native-elements';
 import HomeScreen from './HomeScreen';
 import colors from '../constants/colors';
 import SearchScreen from './SearchScreen';
+import TesterScreen from './TesterScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -49,7 +50,7 @@ const MainScreens = () => {
       />
       <Tab.Screen
         name="Tester"
-        component={HomeScreen}
+        component={TesterScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: icon => (
