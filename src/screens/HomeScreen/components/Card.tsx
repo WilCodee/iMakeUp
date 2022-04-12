@@ -7,6 +7,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import colors from '../../../constants/colors';
+import {useNavigation} from '@react-navigation/core';
+
+import {ScreensListTypeParams} from '../../../types/navigation/index';
+import Images from '../../../assets/Images';
 
 interface Props {
   title: string;
@@ -17,8 +21,26 @@ interface Props {
 }
 
 const Card = ({title, subtitle, time, productImg, brandImg}: Props) => {
+  const {navigate} = useNavigation<ScreensListTypeParams>();
+
+  const goToDetails = () => {
+    navigate('DetailsProduct', {
+      nameProductScreen: 'Velvet Mattes',
+      photos: [Images.product1, Images.product2],
+      colors: ['red', 'blue', 'pink', 'yellow'],
+      nameProduct: 'Velvet Mattes Sunkiss',
+      brand: 'Max Factor',
+      details:
+        'La barra de labios Velvet Matte está diseñada para crear un labio mate llamativo con una sensación de terciopelo.',
+
+      benefits:
+        'Acabado satinado mate suave.La fórmula mate está impregnada de aceites y mantecas para una sensación de hidratación aterciopelada.',
+    });
+  };
+
   return (
     <TouchableOpacity
+      onPress={goToDetails}
       style={{
         backgroundColor: colors.colorLight,
         borderRadius: 15,
