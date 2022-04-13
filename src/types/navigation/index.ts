@@ -11,6 +11,11 @@ export interface DetailParamsType {
   benefits: string;
 }
 
+interface MainScreensType {
+  screen: string;
+}
+
 export type ScreensListTypeParams = StackNavigationProp<{
   DetailsProduct: DetailParamsType;
+  MainScreens: MainScreensType;
 }>;

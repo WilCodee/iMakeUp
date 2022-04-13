@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {RouteProp, useRoute} from '@react-navigation/core';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/core';
 import Layout from './components/Layout';
-import {DetailParamsType} from '../../types/navigation';
+import {DetailParamsType, ScreensListTypeParams} from '../../types/navigation';
 import {
   Dimensions,
   Image,
@@ -16,7 +16,12 @@ import colors from '../../constants/colors';
 import {Icon} from 'react-native-elements';
 
 const DetailsProductScreen = () => {
+  const {navigate} = useNavigation<ScreensListTypeParams>();
   const {params} = useRoute<RouteProp<Record<string, DetailParamsType>>>();
+
+  const handlePress = () => {
+    navigate('MainScreens', {screen: 'Tester'});
+  };
 
   return (
     <ScrollView>
@@ -130,6 +135,7 @@ const DetailsProductScreen = () => {
         }}
       >
         <TouchableOpacity
+          onPress={handlePress}
           style={{
             width: '90%',
             flexDirection: 'row',
