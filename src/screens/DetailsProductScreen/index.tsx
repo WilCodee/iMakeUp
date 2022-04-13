@@ -36,63 +36,28 @@ const DetailsProductScreen = () => {
               marginVertical: 10,
             }}
           >
-            <View
-              style={{
-                backgroundColor: colors.colorLight,
-                width: Dimensions.get('screen').width * 0.9,
-                height: 250,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 20,
-              }}
-            >
-              <Image
-                source={params.photos[1]}
+            {params.photos?.map((photo, i) => (
+              <View
+                key={i}
                 style={{
-                  width: 200,
-                  height: 150,
+                  backgroundColor: colors.colorLight,
+                  width: Dimensions.get('screen').width * 0.9,
+                  height: 250,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 20,
                 }}
-                resizeMode="contain"
-              />
-            </View>
-            <View
-              style={{
-                backgroundColor: colors.colorLight,
-                width: Dimensions.get('screen').width * 0.9,
-                height: 250,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 20,
-              }}
-            >
-              <Image
-                source={params.photos[1]}
-                style={{
-                  width: 200,
-                  height: 150,
-                }}
-                resizeMode="contain"
-              />
-            </View>
-            <View
-              style={{
-                backgroundColor: colors.colorLight,
-                width: Dimensions.get('screen').width * 0.9,
-                height: 250,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 20,
-              }}
-            >
-              <Image
-                source={params.photos[1]}
-                style={{
-                  width: 200,
-                  height: 150,
-                }}
-                resizeMode="contain"
-              />
-            </View>
+              >
+                <Image
+                  source={photo}
+                  style={{
+                    width: 200,
+                    height: 150,
+                  }}
+                  resizeMode="contain"
+                />
+              </View>
+            ))}
           </SwiperFlatList>
         </View>
 
