@@ -6,13 +6,14 @@ import HomeScreen from './HomeScreen';
 import colors from '../constants/colors';
 import SearchScreen from './SearchScreen';
 import TesterScreen from './TesterScreen';
+import MyLooksScreen from './MyLooksScreen';
 
 const Tab = createBottomTabNavigator();
 
 const MainScreens = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="My Looks"
       screenOptions={{
         headerShown: false,
       }}
@@ -65,7 +66,7 @@ const MainScreens = () => {
       />
       <Tab.Screen
         name="My Looks"
-        component={HomeScreen}
+        component={MyLooksScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: icon => (
