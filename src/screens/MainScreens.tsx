@@ -7,13 +7,14 @@ import colors from '../constants/colors';
 import SearchScreen from './SearchScreen';
 import TesterScreen from './TesterScreen';
 import MyLooksScreen from './MyLooksScreen';
+import TutorialsScreen from './TutorialsScreen';
 
 const Tab = createBottomTabNavigator();
 
 const MainScreens = () => {
   return (
     <Tab.Navigator
-      initialRouteName="My Looks"
+      initialRouteName="Tutorials"
       screenOptions={{
         headerShown: false,
       }}
@@ -82,7 +83,7 @@ const MainScreens = () => {
       />
       <Tab.Screen
         name="Tutorials"
-        component={HomeScreen}
+        component={TutorialsScreen}
         options={{
           tabBarShowLabel: false,
           tabBarIcon: icon => (
