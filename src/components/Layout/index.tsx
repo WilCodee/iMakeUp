@@ -1,4 +1,10 @@
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  TextInput,
+} from 'react-native';
 import React from 'react';
 import colors from '../../constants/colors';
 import {Icon} from 'react-native-elements';
@@ -57,9 +63,11 @@ const Layout = ({title, children, search}: Props) => {
                 name="search"
                 size={18}
                 color={colors.secondaryColor}
-                style={{marginRight: 5}}
               />
-              <Text>Buscar</Text>
+              <TextInput
+                placeholder="Buscar"
+                style={{width: '90%', marginVertical: -10}}
+              />
             </TouchableOpacity>
             <TouchableOpacity>
               <Icon
